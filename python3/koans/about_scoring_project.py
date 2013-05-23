@@ -33,7 +33,6 @@ from runner.koan import *
 # Your goal is to write the score method.
 
 def score(dice):
-    # You need to write this method
     pass
 
 class AboutScoringProject(Koan):

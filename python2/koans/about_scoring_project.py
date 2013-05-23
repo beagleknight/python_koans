@@ -34,8 +34,26 @@ from runner.koan import *
 # Your goal is to write the score method.
 
 def score(dice):
-    # You need to write this method
-    pass
+	points = 0
+	result = {}
+	combo3 = { 1: 10, 2: 2, 3: 3, 4: 4, 5: 5, 6: 6 }
+	combo1 = { 1: 100, 2: 0, 3: 0, 4: 0, 5: 50, 6: 0 }
+	
+	for val in dice:
+		if not(val in result):
+			result[val] = 0
+		result[val] += 1
+			
+	for val in result:
+		if(result[val] >= 3):
+			result[val] -= 3
+			points += combo3[val] * 100
+		if(result[val] > 0):
+			points += result[val] * combo1[val]
+			
+	return points
+	
+	
 
 
 class AboutScoringProject(Koan):
